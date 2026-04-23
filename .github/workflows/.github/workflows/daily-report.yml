@@ -2,28 +2,19 @@ name: Daily Stock Report
 
 on:
   schedule:
-    - cron: '0 0 * * 1-5'   # 07:00 WIB (00:00 UTC) Senin-Jumat
-  workflow_dispatch:          # Tombol "Run workflow" manual untuk test
- 
+    - cron: '0 0 * * 1-5'
+  workflow_dispatch:
+
 jobs:
   send-report:
     runs-on: ubuntu-latest
- 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
- 
-      - name: Setup Python 3.11
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
- 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
- 
-      - name: Run bot (kirim laporan sekali)
-        env:
+      - run: pip install python-telegram-bot yfinance pandas numpy pytz
+      - env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
         run: python run_once.py
- 
