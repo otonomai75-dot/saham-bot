@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Environment variables (JANGAN PERNAH commit token!)
+.env
+.env.local
+.env.*.local
+
+# Local helper scripts (mungkin berisi token hardcode, email, atau load .env)
+START_BOT.bat
+TEST_BOT_NOW.bat
+CARI_CHAT_ID.bat
+RUN_BOT_LOCAL.bat
+PUSH_TO_GITHUB.bat
+SETUP.bat
+_test_telegram.py
+_get_chat_id.py
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
